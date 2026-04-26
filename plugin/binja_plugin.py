@@ -101,10 +101,14 @@ def _show_results_sidebar(bv, results_db):
   except Exception:
     traceback.print_exc()
   try:
-    from binaryninjaui import Sidebar
-    Sidebar.current().activate("Diaphora")
+    from binaryninjaui import UIContext
+    ctx = UIContext.activeContext()
+    vf = ctx.getCurrentViewFrame() if ctx is not None else None
+    sidebar = vf.getSidebar() if vf is not None else None
+    if sidebar is not None:
+      sidebar.activate("Diaphora")
   except Exception:
-    pass
+    traceback.print_exc()
   sb = _ui_module.get_sidebar_singleton()
   if sb is not None:
     try:

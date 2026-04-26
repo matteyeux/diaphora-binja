@@ -1388,6 +1388,7 @@ try:
     QFont,
     QAction,
     QKeySequence,
+    QShortcut,
   )
   from PySide6.QtWidgets import (
     QWidget,
@@ -1404,11 +1405,11 @@ try:
     QPushButton,
     QMenu,
     QMessageBox,
-    QShortcut,
     QSplitter,
   )
   HAS_QT = True
 except Exception:  # pragma: no cover
+  traceback.print_exc()
   HAS_QT = False
 
 try:
