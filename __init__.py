@@ -16,4 +16,4 @@ sys.modules["diaphora._engine"] = _core
 _spec.loader.exec_module(_core)
 globals().update({k: v for k, v in vars(_core).items() if not k.startswith("__")})
 
-from plugin import binja_plugin  # noqa: F401
+from .plugin import binja_plugin  # noqa: F401
